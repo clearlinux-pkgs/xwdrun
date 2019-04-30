@@ -4,7 +4,7 @@
 #
 Name     : xwdrun
 Version  : 8
-Release  : 4
+Release  : 5
 URL      : http://localhost/cgit/projects/xwdrun/snapshot/xwdrun-8.tar.gz
 Source0  : http://localhost/cgit/projects/xwdrun/snapshot/xwdrun-8.tar.gz
 Summary  : No detailed summary available
