@@ -4,7 +4,7 @@
 #
 Name     : xwdrun
 Version  : 26
-Release  : 19
+Release  : 20
 URL      : http://localhost/cgit/projects/xwdrun/snapshot/xwdrun-26.tar.gz
 Source0  : http://localhost/cgit/projects/xwdrun/snapshot/xwdrun-26.tar.gz
 Summary  : No detailed summary available
@@ -42,20 +42,21 @@ license components for the xwdrun package.
 
 %prep
 %setup -q -n xwdrun-26
+cd %{_builddir}/xwdrun-26
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564757727
+export SOURCE_DATE_EPOCH=1604360921
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %autogen --disable-static
 make  %{?_smp_mflags}
@@ -65,13 +66,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1564757727
+export SOURCE_DATE_EPOCH=1604360921
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xwdrun
-cp COPYING %{buildroot}/usr/share/package-licenses/xwdrun/COPYING
+cp %{_builddir}/xwdrun-26/COPYING %{buildroot}/usr/share/package-licenses/xwdrun/6b0e3fce4ba4e2a4fba4301ed4e356885de100f7
 %make_install
 
 %files
@@ -83,4 +84,4 @@ cp COPYING %{buildroot}/usr/share/package-licenses/xwdrun/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xwdrun/COPYING
+/usr/share/package-licenses/xwdrun/6b0e3fce4ba4e2a4fba4301ed4e356885de100f7
